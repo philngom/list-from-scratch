@@ -7,7 +7,8 @@ import {
   BrowserRouter as Router,
   Route,
   Switch,
-  Link
+  Link,
+  Redirect
 } from 'react-router-dom';
 
 function App() {
@@ -44,9 +45,22 @@ function App() {
           }
         </header>
         <main>
-
-
-          <AuthPage />
+          <Switch>
+            <Route exact path='/'>
+              {
+                user
+                  ? <Redirect to='/my-countries' />
+                  : <AuthPage setUser={ setUser } />
+              }
+            </Route>
+            <Route exact path='/my-countries'>
+              {
+                user
+                  ? <CountriesPage />
+                  : <Redirect to='/' />
+              }
+            </Route>
+          </Switch>
         </main>
       </div>
     </Router>
