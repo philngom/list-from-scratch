@@ -3,7 +3,11 @@ import { logOut, getUser } from './services/fetch-utils.js';
 import { useEffect, useState } from 'react';
 import AuthPage from './AuthPage.js';
 import CountriesPage from './CountriesPage.js';
-
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch
+} from 'react-router-dom';
 
 function App() {
 
