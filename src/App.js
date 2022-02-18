@@ -1,10 +1,13 @@
 import './App.css';
+import { logOut, getUser } from './services/fetch-utils.js';
+import { useEffect } from 'react';
+import AuthPage from './AuthPage.js';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>TESTING</h1>
+        <AuthPage />
       </header>
     </div>
   );
