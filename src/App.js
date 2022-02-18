@@ -2,6 +2,8 @@ import './App.css';
 import { logOut, getUser } from './services/fetch-utils.js';
 import { useEffect, useState } from 'react';
 import AuthPage from './AuthPage.js';
+import CountriesPage from './CountriesPage.js';
+
 
 function App() {
 
@@ -24,6 +26,7 @@ function App() {
         }
       </header>
       <main>
+
         <AuthPage />
       </main>
     </div>
