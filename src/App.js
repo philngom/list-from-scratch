@@ -6,7 +6,8 @@ import CountriesPage from './CountriesPage.js';
 import {
   BrowserRouter as Router,
   Route,
-  Switch
+  Switch,
+  Link
 } from 'react-router-dom';
 
 function App() {
@@ -21,19 +22,34 @@ function App() {
     fetchUser();
   }, []);
 
-  return (
-    <div className="App">
-      <header>
-        {
-          user &&
-          <button>Logout</button>
-        }
-      </header>
-      <main>
+  async function handleLogOut() {
+    await logOut();
+    setUser(null);
+  }
 
-        <AuthPage />
-      </main>
-    </div>
+  return (
+    <Router>
+      <div className="App">
+        <header>
+          {
+            user &&
+            <ul>
+              <li>
+                <Link to='/my-countries'></Link>
+              </li>
+              <li>
+                <button onClick={ handleLogOut }>Logout</button>
+              </li>
+            </ul>
+          }
+        </header>
+        <main>
+
+
+          <AuthPage />
+        </main>
+      </div>
+    </Router>
   );
 }
 
