@@ -4,25 +4,14 @@ import MyCountries from './MyCountries';
 import { useEffect, useState } from 'react';
 
 
-export default function CountriesPage() {
-  const [countries, setCountries] = useState([]);
-
-  useEffect(() => {
-    async function fetchAllCountries() {
-      const response = await fetch('/.netlify/functions/countries');
-      const data = await response.json();
-      setCountries(data);
-      console.log(data);
-    }
-    fetchAllCountries();
-  }, []);
+export default function CountriesPage({ countries }) {
 
   const location = useLocation();
   return (
     <div>
       {/* {
         countries.map((country, i) => location.pathname.includes('countries')
-          ? <Country key={country + i} country={country}/>
+          ? <Countries key={countries + i} country={country}/>
           : <MyCountries key={country + i} country={country}/>
         )
       } */}

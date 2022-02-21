@@ -1,5 +1,12 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 .App {
   text-align: center;
+  background-color: #00DBDE;
+  background-image: linear-gradient(90deg, #00DBDE 0%, #FC00FF 100%);
 }
 
 .App-logo {
@@ -39,4 +46,29 @@
 
 ul li {
  list-style-type: none;
+}
+
+.countries {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.country {
+  width: 220px;
+  border: 1px solid blue;
+  border-radius: 2em;
+}
+
+
+.country img {
+  width: 150px;
+}
+
+.country:hover {
+  transform: scale(1.07);
+  background-color: greenyellow;
+  cursor: pointer;
 }
