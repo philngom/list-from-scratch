@@ -1,4 +1,4 @@
-export default function Country() {
+export default function Country({ country }) {
   return (
     <div>
 

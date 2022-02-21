@@ -1,4 +1,4 @@
-export default function Country() {
+export default function Countries() {
   return (
     <div>
       All Countries
