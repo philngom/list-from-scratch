@@ -3,6 +3,7 @@ import { logOut, getUser } from './services/fetch-utils.js';
 import { useEffect, useState } from 'react';
 import AuthPage from './AuthPage.js';
 import CountriesPage from './CountriesPage.js';
+import MyCountries from './MyCountries.js';
 import {
   BrowserRouter as Router,
   Route,
@@ -36,7 +37,10 @@ function App() {
             user &&
             <ul>
               <li>
-                <Link to='/my-countries'></Link>
+                <Link to='/countries'>Countries</Link>
+              </li>
+              <li>
+                <Link to='/my-countries'>My Countries</Link>
               </li>
               <li>
                 <button onClick={ handleLogOut }>Logout</button>
@@ -49,14 +53,21 @@ function App() {
             <Route exact path='/'>
               {
                 user
-                  ? <Redirect to='/my-countries' />
+                  ? <Redirect to='/countries' />
                   : <AuthPage setUser={ setUser } />
+              }
+            </Route>
+            <Route exact path='/countries'>
+              {
+                user
+                  ? <CountriesPage />
+                  : <Redirect to='/' />
               }
             </Route>
             <Route exact path='/my-countries'>
               {
                 user
-                  ? <CountriesPage />
+                  ? <MyCountries />
                   : <Redirect to='/' />
               }
             </Route>
