@@ -5,8 +5,8 @@ import MyCountries from './MyCountries';
 
 export default function CountriesPage({ countries }) {
 
+
   const location = useLocation();
-  console.log(location.pathname.includes('my-countries'));
   return (
     <div>
       {/* {
