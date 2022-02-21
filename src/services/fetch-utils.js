@@ -24,3 +24,4 @@ export async function logOut() {
   return window.location.href = '../';
 }
 
+

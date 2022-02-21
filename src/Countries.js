@@ -1,6 +1,4 @@
 import { useEffect, useState } from 'react';
-
-import CountriesPage from './CountriesPage';
 import Country from './Country';
 
 export default function Countries() {

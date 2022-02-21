@@ -59,9 +59,8 @@ ul li {
 .country {
   width: 220px;
   border: 1px solid blue;
-  border-radius: 2em;
+  border-radius: 1em;
 }
-
 
 .country img {
   width: 150px;
