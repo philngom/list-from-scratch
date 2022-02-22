@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { addCountry } from './services/fetch-utils';
 
 export default function Country({ country }) {
@@ -6,7 +5,7 @@ export default function Country({ country }) {
   async function addCountryToMyList() {
     await addCountry({
       name: country.name.official,
-      capital: country.capital[0],
+      capital: country.capital,
       flag: country.flags.png
     });
   }

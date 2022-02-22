@@ -31,3 +31,11 @@ export async function addCountry(country) {
 
   return checkError(response);
 }
+
+export async function getMyCountries() {
+  const response = await client
+    .from('countries')
+    .select();
+
+  return checkError(response);
+}
