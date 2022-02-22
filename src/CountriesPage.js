@@ -8,7 +8,6 @@ export default function CountriesPage() {
   return (
     <div>
       {
-
         location.pathname.includes('my-countries')
           ? <MyCountries />
           : <Countries />

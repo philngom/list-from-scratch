@@ -52,5 +52,11 @@ export async function visitCountry(id, bool) {
 export async function fetchAllCountries() {
   const response = await fetch('/.netlify/functions/countries');
   const data = await response.json();
-  return checkError(data);
+  return data;
+}
+
+export async function fetchQueriedCountries(query) {
+  const response = await fetch(`/.netlify/functions/search?query=${query}`);
+  const data = await response.json();
+  return data;
 }

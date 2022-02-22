@@ -1,30 +1,33 @@
 import { useEffect, useState } from 'react';
+import { fetchAllCountries } from './services/fetch-utils';
 import Country from './Country';
+
 
 export default function Countries() {
   const [countries, setCountries] = useState([]);
   const [query, setQuery] = useState('');
 
   useEffect(() => {
-    async function fetchAllCountries() {
-      const response = await fetch('/.netlify/functions/countries');
-      const data = await response.json();
-      setCountries(data);
-    }
-    fetchAllCountries();
+    fetchCountries();
   }, []);
+
+  async function fetchCountries() {
+    const data = await fetchAllCountries();
+    setCountries(data);
+  }
 
   async function handleSearchQuery(e) {
     e.preventDefault();
     const response = await fetch(`/.netlify/functions/search?query=${query}`);
     const data = await response.json();
-    setCountries(data);
+    data ? setCountries(data) : await fetchAllCountries();
   }
 
   return (
     <div className='countries'>
       <form onSubmit={ handleSearchQuery }>
         <label>
+          Search for a country:
           <input required value={ query } onChange={e => setQuery(e.target.value) }/>
         </label>
         <button type="submit">Search</button>
