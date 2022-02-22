@@ -14,7 +14,7 @@ export default function MyCountries() {
     setCountries(data);
   }
 
-  async function handleClick(id, visited) {
+  async function handleVisitedClick(id, visited) {
     if (visited) {
       await visitCountry(id, false);
     } else {
@@ -27,7 +27,7 @@ export default function MyCountries() {
     <div className='countries'>
       {
         countries.map((country, i) =>
-          <div key={country + i} className='country' onClick={() => handleClick(country.id, country.visited) }>
+          <div key={country + i} className='country' onClick={() => handleVisitedClick(country.id, country.visited) }>
             <h4>{ country.name } {country.visited ? '✈️' : ''}</h4>
             <img src={country.flag}/>
           </div>
