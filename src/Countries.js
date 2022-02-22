@@ -14,9 +14,10 @@ export default function Countries() {
     fetchAllCountries();
   }, []);
 
-  async function handleSearchQuery() {
+  async function handleSearchQuery(e) {
+    e.preventDefault();
     const response = await fetch(`/.netlify/functions/search?query=${query}`);
-    const data = response.json();
+    const data = await response.json();
     setCountries(data);
   }
 

@@ -48,3 +48,9 @@ export async function visitCountry(id, bool) {
     .match({ id });
   return checkError(response);
 }
+
+export async function fetchAllCountries() {
+  const response = await fetch('/.netlify/functions/countries');
+  const data = await response.json();
+  return checkError(data);
+}

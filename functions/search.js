@@ -7,6 +7,7 @@ exports.handler = async (event) => {
   try {
     const response = await fetch(`https://restcountries.com/v3.1/name/${searchQuery}`);
     const data = await response.json();
+    console.log(data);
     const json = JSON.stringify(data);
 
     return {
