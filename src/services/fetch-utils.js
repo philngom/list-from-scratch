@@ -35,7 +35,16 @@ export async function addCountry(country) {
 export async function getMyCountries() {
   const response = await client
     .from('countries')
-    .select();
+    .select()
+    .order('id', { ascending: true });
 
+  return checkError(response);
+}
+
+export async function visitCountry(id, bool) {
+  const response = await client
+    .from('countries')
+    .update({ visited: bool })
+    .match({ id });
   return checkError(response);
 }
