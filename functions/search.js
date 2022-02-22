@@ -2,12 +2,11 @@ const fetch = require('node-fetch');
 require('dotenv').config();
 
 exports.handler = async (event) => {
-  const searchQuery = event.queryStringParameters.search;
+  const searchQuery = event.queryStringParameters.query;
 
   try {
     const response = await fetch(`https://restcountries.com/v3.1/name/${searchQuery}`);
     const data = await response.json();
-    console.log(data);
     const json = JSON.stringify(data);
 
     return {
