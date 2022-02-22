@@ -6,7 +6,7 @@ export default function Country({ country }) {
   async function addCountryToMyList() {
     await addCountry({
       name: country.name.official,
-      capital: country.capital,
+      capital: country.capital[0],
       flag: country.flags.png
     });
   }

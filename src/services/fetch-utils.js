@@ -24,4 +24,10 @@ export async function logOut() {
   return window.location.href = '../';
 }
 
+export async function addCountry(country) {
+  const response = await client
+    .from('countries')
+    .insert([country]);
 
+  return checkError(response);
+}
